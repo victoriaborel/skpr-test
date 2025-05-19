@@ -1,95 +1,151 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { clsx } from 'clsx';
+import { compareAsc, compareDesc } from 'date-fns';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useMediaQuery } from 'usehooks-ts';
+import { v4 as uuidv4 } from 'uuid';
+
+import Cross from '@svg/cross.svg';
+import Plus from '@svg/plus.svg';
+
+import { Expense } from '@types';
+
+import styles from './page.module.css';
+import { AddExpenseForm, ExpensesTable } from '@components/pages/home';
+import { AddExpenseFormValues } from '@components/pages/home/add-expense-form/add-expense-form.types';
+import { Button, FilterSortSelector, Loader } from '@components/shared';
+import { FilterSortOption } from '@components/shared/filter-sort-selector/filter-sort-selector.types';
+
+import { CATEGORY_OPTIONS, SORT_OPTIONS } from '@constants';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [categoryFilter, setCategoryFilter] = useState<FilterSortOption | null>(null);
+  const [sort, setSort] = useState<FilterSortOption>(SORT_OPTIONS[0]);
+  const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+  const isDesktop = useMediaQuery('(min-width: 1440px)');
+
+  useEffect(() => {
+    const loadData = async () => {
+      const response = await fetch('/mock-data.json');
+      const data = await response.json();
+      setExpenses(data);
+      setLoading(false);
+    };
+
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  const filteredExpenses = useMemo(() => {
+    return categoryFilter === null
+      ? expenses
+      : expenses.filter((expense) => expense.category === categoryFilter.value);
+  }, [expenses, categoryFilter]);
+
+  const sortedExpenses = useMemo(() => {
+    const direction = sort.value.split('-')[1];
+
+    return [...filteredExpenses].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+
+      return direction === 'asc' ? compareAsc(dateA, dateB) : compareDesc(dateA, dateB);
+    });
+  }, [filteredExpenses, sort]);
+
+  const handleDelete = (id: string) => {
+    setExpenses((prev) => prev.filter((expense) => expense.id !== id));
+  };
+
+  const handleAdd = ({ description, category, amount, date }: AddExpenseFormValues) => {
+    const newExpense: Expense = {
+      id: uuidv4(),
+      description,
+      category,
+      date: (date as Date).toISOString(),
+      amount: parseFloat(amount),
+    };
+
+    setExpenses((prev) => [...prev, newExpense]);
+    setOpen(false);
+  };
+
+  const openAddExpense = () => {
+    setOpen(true);
+  };
+
+  const closeAddExpense = () => {
+    setOpen(false);
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  return (
+    <main className={styles.page}>
+      <h1 className={styles.title}>Мои расходы</h1>
+
+      <div className={styles.mainContainer}>
+        <section className={styles.left}>
+          <div className={styles.leftHead}>
+            <h2 className={styles.subtitle}>Таблица расходов</h2>
+
+            <div className={styles.tableActions}>
+              <div className={styles.filterSortControls}>
+                <FilterSortSelector
+                  type="filter"
+                  label={isDesktop ? 'Фильтровать по категории' : 'Категория'}
+                  selectedOption={categoryFilter}
+                  onChange={setCategoryFilter}
+                  options={CATEGORY_OPTIONS}
+                />
+
+                <FilterSortSelector
+                  type="sort"
+                  label="Сортировать по"
+                  selectedOption={sort}
+                  onChange={setSort}
+                  options={SORT_OPTIONS}
+                />
+              </div>
+
+              <Button className={styles.openAddExpense} onClick={openAddExpense}>
+                <span>Добавить новый расход</span>
+
+                <Plus />
+              </Button>
+            </div>
+          </div>
+
+          <ExpensesTable data={sortedExpenses} onDelete={handleDelete} />
+        </section>
+
+        <aside className={clsx(styles.right, { [styles.open]: open })}>
+          <h2 className={styles.subtitle}>Новый расход</h2>
+
+          <AddExpenseForm onAdd={handleAdd} />
+
+          <button className={styles.closeButton} onClick={closeAddExpense}>
+            <Cross />
+          </button>
+        </aside>
+      </div>
+    </main>
   );
 }

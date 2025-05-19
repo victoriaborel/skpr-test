@@ -1,25 +1,42 @@
 {
-  "name": "skpr-test",
+  "name": "skypro",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack -p 8000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "g": "plop"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "motion": "^12.11.3",
+    "next": "15.1.2",
     "react": "^19.0.0",
+    "react-datepicker": "^8.3.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "simplebar": "^6.3.1",
+    "usehooks-ts": "^3.1.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3.3.1",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.2",
-    "@eslint/eslintrc": "^3"
+    "eslint": "^9.26.0",
+    "eslint-config-next": "^15.3.2",
+    "eslint-plugin-perfectionist": "^4.13.0",
+    "plop": "^4.0.1",
+    "postcss-custom-media": "^11.0.5",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^16.1.0",
+    "postcss-mixins": "^11.0.3",
+    "postcss-preset-env": "^10.1.4",
+    "typescript": "^5"
   }
 }

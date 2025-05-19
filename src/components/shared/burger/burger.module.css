@@ -1,0 +1,27 @@
+.burger {
+  cursor: pointer;
+}
+.burger svg path {
+  transition: transform 500ms ease;
+  transform-origin: center;
+}
+
+.burger svg path:first-child {
+  transform-origin: top left;
+}
+
+.burger svg path:last-child {
+  transform-origin: bottom left;
+}
+
+.burger.open svg path:first-child {
+  transform: rotate(45deg) translate(5px, -7px);
+}
+
+.burger.open svg path:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.burger.open svg path:last-child {
+  transform: rotate(-45deg) translate(3.5px, 5.5px);
+}

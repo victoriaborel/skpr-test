@@ -1,0 +1,72 @@
+@import '../../../styles/mixins.css';
+@import '../../../styles/media.css';
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  width: 100%;
+
+  legend {
+    margin-bottom: 16px;
+  }
+}
+
+.optionsContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  .option {
+    position: relative;
+
+    .label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      gap: 12px;
+      padding: 8px 20px;
+      background-color: var(--skypro-lightgray);
+      cursor: pointer;
+
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: capitalize;
+
+        @media screen and (--medium-viewport) {
+          font-size: 14px;
+        }
+      }
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      &:hover {
+        background-color: var(--skypro-lightgray-5-dark);
+      }
+
+      &:active {
+        background-color: var(--skypro-lightgray-10-dark);
+      }
+    }
+    .input {
+      position: absolute;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    .input:checked + .label {
+      background-color: var(--skypro-lightgray-10-dark);
+    }
+  }
+}
+
+.errorMessage {
+  @mixin input-error-message;
+}

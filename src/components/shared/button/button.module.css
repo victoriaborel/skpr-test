@@ -1,0 +1,20 @@
+@import '../../../styles/mixins.css';
+@import '../../../styles/media.css';
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  @mixin primary-button;
+
+  @media screen and (--medium-viewport) {
+    font-size: 15px;
+  }
+}

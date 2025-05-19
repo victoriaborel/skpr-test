@@ -1,0 +1,118 @@
+@import '../../../styles/mixins.css';
+@import '../../../styles/media.css';
+
+.wrapper {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+
+.selectContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  .label {
+    display: inline-flex;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    cursor: pointer;
+  }
+
+  .selectedOption {
+    @mixin highlighted;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  transform-origin: top;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 5px;
+  background-color: var(--skypro-white);
+  padding: 12px 8px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  z-index: 1;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    li {
+      cursor: pointer;
+      padding: 0 8px;
+
+      &:hover {
+        color: var(--skypro-green-hover);
+      }
+    }
+
+    li.selected {
+      font-weight: 600;
+      color: var(--skypro-green);
+    }
+
+    li:not(:last-child) {
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--skypro-lightgray);
+    }
+  }
+}
+
+.clearButton {
+  width: 100%;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 4px 6px;
+  border-radius: 6px;
+
+  @mixin primary-button;
+}
+
+.wrapper {
+  @media screen and (--medium-viewport) {
+    width: 100%;
+
+    .selectContainer {
+      span {
+        font-size: 15px;
+      }
+    }
+
+    .dropdown {
+      width: 100%;
+      gap: 16px;
+
+      ul,
+      li {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+      }
+
+      li:not(:last-child) {
+        padding-bottom: 6px;
+      }
+
+      .clearButton {
+        font-size: 15px;
+        line-height: 17px;
+        padding: 6px;
+      }
+    }
+  }
+}

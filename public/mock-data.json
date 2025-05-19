@@ -1,0 +1,247 @@
+[
+  {
+    "id": "b674adfa-8934-4f6c-a7d1-8ab140bda4b1",
+    "description": "Ригла",
+    "category": "other",
+    "amount": 900,
+    "date": "2025-04-18T00:00:00+03:00"
+  },
+  {
+    "id": "e98a93a3-30a0-484b-b3ff-9684a89d0d9b",
+    "description": "Кофе Хаус",
+    "category": "food",
+    "amount": 450,
+    "date": "2025-04-25T00:00:00+03:00"
+  },
+  {
+    "id": "cf124849-d8b9-4b5f-93e5-23f83793378a",
+    "description": "Лeтуаль",
+    "category": "other",
+    "amount": 761,
+    "date": "2025-04-30T00:00:00+03:00"
+  },
+  {
+    "id": "34c67db1-8e44-4c18-87ea-c8e4a960f9ea",
+    "description": "Кинотеатр",
+    "category": "entertainment",
+    "amount": 1200,
+    "date": "2025-04-28T00:00:00+03:00"
+  },
+  {
+    "id": "d7a9adbd-bb5e-44ba-8815-b7e3bb6fd6d6",
+    "description": "Перекресток",
+    "category": "food",
+    "amount": 630,
+    "date": "2025-05-01T00:00:00+03:00"
+  },
+  {
+    "id": "83062d8e-7420-4c9f-b9f0-6975a4e5079b",
+    "description": "Яндекс.Такси",
+    "category": "transportation",
+    "amount": 1020,
+    "date": "2025-04-15T00:00:00+03:00"
+  },
+  {
+    "id": "24ed1104-e1b9-42ba-b2a3-23892adfc004",
+    "description": "Вкусно — и точка",
+    "category": "food",
+    "amount": 1001,
+    "date": "2025-04-20T00:00:00+03:00"
+  },
+  {
+    "id": "7a5174b3-1b2a-427f-8529-3ad8de1d4d99",
+    "description": "ВкусВилл",
+    "category": "food",
+    "amount": 1321,
+    "date": "2025-04-14T00:00:00+03:00"
+  },
+  {
+    "id": "a387dcdc-ec57-474f-b3be-ff507d865902",
+    "description": "Бильярд",
+    "category": "entertainment",
+    "amount": 251,
+    "date": "2025-04-23T00:00:00+03:00"
+  },
+  {
+    "id": "10e497ba-cb17-4d97-b08b-601a9b337660",
+    "description": "Додо Пицца",
+    "category": "food",
+    "amount": 780,
+    "date": "2025-04-19T00:00:00+03:00"
+  },
+  {
+    "id": "f87f6a82-ec5e-4f49-b908-d312f206c506",
+    "description": "Skyeng",
+    "category": "education",
+    "amount": 4500,
+    "date": "2025-04-22T00:00:00+03:00"
+  },
+  {
+    "id": "9e4c8b36-93e3-4683-94b0-59771b7a0509",
+    "description": "Skypro",
+    "category": "education",
+    "amount": 3200,
+    "date": "2025-04-24T00:00:00+03:00"
+  },
+  {
+    "id": "2b74e9c5-d3d1-4a61-8577-e9b478e2bcd2",
+    "description": "Кинотеатр",
+    "category": "entertainment",
+    "amount": 850,
+    "date": "2025-04-16T00:00:00+03:00"
+  },
+  {
+    "id": "65967f76-d3f1-43a3-9df3-019d02fd250b",
+    "description": "Каток",
+    "category": "entertainment",
+    "amount": 550,
+    "date": "2025-04-11T00:00:00+03:00"
+  },
+  {
+    "id": "b8e3d4b3-7433-43ab-a518-7c97dfe0458c",
+    "description": "Лeтуаль",
+    "category": "other",
+    "amount": 1200,
+    "date": "2025-04-10T00:00:00+03:00"
+  },
+  {
+    "id": "b20c7a8f-8ff1-4539-8417-d8cc4647c961",
+    "description": "Ригла",
+    "category": "other",
+    "amount": 400,
+    "date": "2025-04-26T00:00:00+03:00"
+  },
+  {
+    "id": "b32493a1-8990-478b-878f-d57b52b287c2",
+    "description": "Перекресток",
+    "category": "food",
+    "amount": 580,
+    "date": "2025-04-12T00:00:00+03:00"
+  },
+  {
+    "id": "d41098a1-f349-4048-b4fa-118b0d510f5c",
+    "description": "Магнит",
+    "category": "food",
+    "amount": 1079,
+    "date": "2025-04-13T00:00:00+03:00"
+  },
+  {
+    "id": "f3f85d80-2069-4a2f-bb74-5c0e17f56d8b",
+    "description": "Технопарк",
+    "category": "entertainment",
+    "amount": 650,
+    "date": "2025-04-17T00:00:00+03:00"
+  },
+  {
+    "id": "9c5a1c2e-16b4-48e1-9a8e-e927e010fd36",
+    "description": "Цирк",
+    "category": "entertainment",
+    "amount": 800,
+    "date": "2025-04-21T00:00:00+03:00"
+  },
+  {
+    "id": "51e3b34c-2b5c-4e1a-91ea-5b3e7a330dad",
+    "description": "Золотое Яблоко",
+    "category": "other",
+    "amount": 1325,
+    "date": "2025-04-27T00:00:00+03:00"
+  },
+  {
+    "id": "8b5e436d-30fd-47f1-922a-3ec8e14d7a44",
+    "description": "Метро",
+    "category": "transportation",
+    "amount": 450,
+    "date": "2025-04-29T00:00:00+03:00"
+  },
+  {
+    "id": "29abfd99-7b0b-4e1e-9e64-c413c5df7c76",
+    "description": "Экскурсия",
+    "category": "entertainment",
+    "amount": 400,
+    "date": "2025-05-05T00:00:00+03:00"
+  },
+  {
+    "id": "ae813e6d-5200-437e-b04e-54a5f7c1ae70",
+    "description": "Эльдорадо",
+    "category": "other",
+    "amount": 2150,
+    "date": "2025-05-07T00:00:00+03:00"
+  },
+  {
+    "id": "6191d5cf-19cd-45c1-8f78-1561d0b76c3e",
+    "description": "Тинькофф",
+    "category": "other",
+    "amount": 690,
+    "date": "2025-05-09T00:00:00+03:00"
+  },
+  {
+    "id": "3e3b302a-1911-4647-bfcd-2829f70b1ffb",
+    "description": "12Storeez",
+    "category": "other",
+    "amount": 12000,
+    "date": "2025-05-01T00:00:00+03:00"
+  },
+  {
+    "id": "4c157f49-b2e0-40f9-bd2b-99db92d07a3d",
+    "description": "М-Видео",
+    "category": "other",
+    "amount": 1890,
+    "date": "2025-05-03T00:00:00+03:00"
+  },
+  {
+    "id": "2925b16c-b12a-4b5e-bbc5-baa4f4f0f71d",
+    "description": "Бургер Кинг",
+    "category": "food",
+    "amount": 245,
+    "date": "2025-05-10T00:00:00+03:00"
+  },
+  {
+    "id": "7bc0b99d-dbc5-4879-9fd7-e37008e3512a",
+    "description": "Шоколадница",
+    "category": "food",
+    "amount": 315,
+    "date": "2025-05-12T00:00:00+03:00"
+  },
+  {
+    "id": "b4c372a2-87b4-477a-925f-97dbf317343b",
+    "description": "Кафе Париж",
+    "category": "food",
+    "amount": 1290,
+    "date": "2025-05-13T00:00:00+03:00"
+  },
+  {
+    "id": "a5d509e0-42e1-4885-86b7-394488d0e6ea",
+    "description": "Детский мир",
+    "category": "other",
+    "amount": 850,
+    "date": "2025-05-14T00:00:00+03:00"
+  },
+  {
+    "id": "312fc2d5-bf6d-45f2-a745-4c4bfc6f6c4d",
+    "description": "Татнефть",
+    "category": "transportation",
+    "amount": 580,
+    "date": "2025-05-15T00:00:00+03:00"
+  },
+  {
+    "id": "2a1db9d2-0b13-48a2-9b6c-8d859f415a0c",
+    "description": "Кинотеатр",
+    "category": "entertainment",
+    "amount": 430,
+    "date": "2025-05-16T00:00:00+03:00"
+  },
+  {
+  "id": "2f4a69c0-bf02-42fc-b57f-25f5a00c5d02",
+  "description": "Яндекс.Такси",
+  "category": "transportation",
+  "amount": 326,
+  "date": "2025-05-17T00:00:00+03:00"
+  },
+  {
+    "id": "5c742a8e-46d2-4741-b0bb-f2c91d167847",
+    "description": "Додо Пицца",
+    "category": "food",
+    "amount": 1201,
+    "date": "2025-05-16T00:00:00+03:00"
+  }
+]

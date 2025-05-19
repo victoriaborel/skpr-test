@@ -1,0 +1,9 @@
+@import '../../../styles/mixins.css';
+
+.dateInputWrapper {
+  @mixin input-wrapper;
+}
+
+.errorMessage {
+  @mixin input-error-message;
+}

@@ -1,0 +1,153 @@
+@import '../../../styles/mixins.css';
+@import '../../../styles/media.css';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 64px;
+  color: var(--text-color);
+}
+
+.logo {
+  width: 144px;
+  height: 24px;
+  z-index: 1;
+  padding: 3px 0 2px 0;
+}
+
+.burger {
+  display: none;
+  z-index: 1;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navLinks {
+  display: flex;
+  gap: 48px;
+}
+
+.navLink {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: all 200ms ease;
+
+  &:hover {
+    color: var(--skypro-green-hover);
+  }
+
+  &:active {
+    color: var(--skypro-green-active);
+  }
+
+  &.active {
+    @mixin highlighted;
+  }
+}
+
+.logout {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--skypro-green-hover);
+    }
+  }
+
+  &:active {
+    color: var(--skypro-green-active);
+  }
+}
+
+.wrapper {
+  @media screen and (--large-viewport) {
+    padding: 0 48px;
+
+    .navLinks {
+      gap: 24px;
+    }
+  }
+}
+
+.wrapper {
+  @media screen and (--medium-viewport) {
+    padding: 0 44px;
+    min-height: 60px;
+
+    .logo {
+      width: 160px;
+    }
+
+    .burger {
+      display: block;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: var(--skypro-white);
+      z-index: 0;
+    }
+
+    .menu {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -200%;
+      background: var(--skypro-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 12px 0 32px 48px;
+      gap: 12px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0 10px 36px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
+      z-index: -1;
+      transition: transform 600ms ease;
+
+      &.open {
+        transform: translateY(140%);
+      }
+
+      .nav {
+        position: static;
+        transform: none;
+
+        .navLinks {
+          flex-direction: column;
+          gap: 12px;
+
+          .navLink {
+            font-size: 15px;
+            line-height: 17px;
+          }
+        }
+      }
+
+      .logout {
+        font-size: 15px;
+        line-height: 17px;
+      }
+    }
+  }
+}
